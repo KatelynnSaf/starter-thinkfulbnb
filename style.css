@@ -1,7 +1,6 @@
 /* -------  General Styles ------- */
-html,
+
 body {
-  width: 100%;
   font-family: "Lato", sans-serif;
 }
 
@@ -33,6 +32,7 @@ section.alternate-background {
 
 main img {
   width: 100%;
+/*  padding-bottom: 16px;  possibly refactor with this padding  */
 }
 
 /* ---  Groups & Items --- */
@@ -42,17 +42,20 @@ main img {
   flex-direction: column;
 }
 
-.group img {
-  width: 100%;
-}
-
 .item {
   flex: 1;
   margin: 10px;
+  align-self: center;
+  width: 100%;
+}
+
+.item > img {
+  width: 100%;
 }
 
 .item-double {
   flex: 2;
+  margin: 16px;
 }
 
 /* -------  Navigation ------- */
@@ -65,20 +68,23 @@ header {
 
 .logo {
   font-family: "Pangolin", cursive;
-  font-size: 72px;
+  font-size: 60px;
   color: #fff;
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
 }
 
 header nav ul {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   padding-left: 0;
-  padding-bottom: 20px;
+  list-style: none;
 }
 
 header nav ul li {
-  list-style-type: none;
+ list-style-type: none;
 }
 
 header nav ul li a {
@@ -87,27 +93,25 @@ header nav ul li a {
   padding: 0 20px 0 0;
 }
 
+header nav ul li a:hover {
+  color: #bdbdbd;
+  text-decoration: none;
+}
+
 /* -------  Search Form ------- */
 
 form {
   border: 2px solid #ff385c;
-  padding: 10px;
-  max-width: 100%;
-}
-
-form button {
-  background-color: #ff385c;
-  color: #fff;
-  font-size: 24px;
-  padding: 15px;
-  width: 100%;
-  border: none;
-}
-
-#vacaForm {
+  padding: 3%;
   display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  padding: 0 7px;
+  flex: 1;
 }
 
 form label {
@@ -118,6 +122,16 @@ form select,
 form input {
   margin-bottom: 20px;
   width: 180px;
+}
+
+form button {
+  background-color: #ff385c;
+  border: none;
+  color: #fff;
+  flex: 1;
+  font-size: 24px;
+  padding: 15px;
+  width: 100%;
 }
 
 /* -------  Footer ------- */
@@ -132,61 +146,58 @@ footer p {
   padding: 20px;
 }
 
-/* -------  Media Query for Desktop ------- */
+/* -------  Media Query --- desktop styles ---- */
 
-@media screen and (min-width: 480px) {
+@media all and (min-width: 480px) {
 
-  /* ------ NavBar ------ */
+  /* --- navigation --- */
+
   header {
     display: flex;
+   /* flex-direction: row; */
     justify-content: space-between;
-    align-items: center;
-
-  }
-  header nav ul {
-    padding-top: 14px;
+    padding: 0;
   }
 
   .logo {
-    font-size: 3rem;
+    margin: 14 px 0 14px 20px; 
+    padding-top: 0;
   }
 
-  header nav ul li a:hover {
-    color: #bdbdbd;
-    text-decoration: none;
-  }
-
-  /* ------- Form ------ */
-  form {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
-  }
-
-  #vacaForm {
-    display: flex;
-    flex-direction: column;
-  }
-
-  #vacaForm button {
-    transform: translateY(25%);
-    width: 11rem;
-  }
-
-  /* ----- Grouping ----- */
-  .group {
-    display: flex;
-    flex-direction: row;
+  header nav {
     align-items: center;
   }
 
-  .ideas-top {
-    display: flex;
+  /* --- search form --- */
+
+  form {
+    flex-direction: row;
+    justify-content: space-between;
+   /* margin: 5px 5px 5px 5px; */
   }
 
-  .ideas-bot {
-    display: flex;
+  .form-group {
+    flex-direction: column;
+    min-width: 0;
+  }
+  
+  form button {
+    font-size: 30px;
+    padding: 15px;
+    width: 240px;
+  }
+
+  /* --- group and other classes --- */
+
+  .group {
+    flex-direction: row;
+  }
+
+  .abouttext-midheight {
+    align-self: center;
+  }
+
+  .hosttext-midheight {
+    align-self: center;
   }
 }
